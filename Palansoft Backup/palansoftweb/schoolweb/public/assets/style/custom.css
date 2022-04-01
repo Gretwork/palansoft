@@ -1,0 +1,84 @@
+body {
+  font-size: 14px;
+}
+img,
+a,
+a:link,
+a:visited,
+div {
+  outline: none;
+  text-decoration: none;
+}
+.white,
+.white:link,
+.white:visited {
+  color: #fff !important;
+}
+.btn-red,
+.btn-red:focus,
+.btn-red:hover {
+  background: #e50914;
+  border-color: #e50914;
+  color: #fff;
+}
+.login-main-con {
+  position: relative;
+}
+.login-main-con {
+  content: "";
+  opacity: 1;
+  z-index: 0;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: url(../images/bg-net-1.jpg);
+}
+html,
+body {
+  height: 100%;
+}
+.form-signin:before {
+  content: "";
+  opacity: 0.5;
+  z-index: -1;
+  position: relative;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+}
+.form-signin {
+  position: relative;
+  z-index: 99;
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 15vh auto auto;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
