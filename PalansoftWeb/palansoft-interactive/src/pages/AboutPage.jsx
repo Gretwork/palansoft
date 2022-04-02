@@ -3,7 +3,7 @@ import Card from '../components/shared/Card'
 
 function AboutPage(props) {
   return (
-    <Card>
+    <div className='container min-height'>
       <div className='about'>
         <h1>About Palansoft Interactive</h1>
         <p>This is a Palansoft Interactive Website Page</p>
@@ -13,7 +13,7 @@ function AboutPage(props) {
           <Link to='/'>Back To Home</Link>
         </p>
       </div>
-    </Card>
+    </div>
   )
 }
 

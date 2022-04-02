@@ -4,6 +4,7 @@ import requests from '../api/movieapi'
 import MovieBanner from '../components/MovieBanner'
 import ActivityRaw from '../components/ActivityRaw'
 import { useState, useEffect } from 'react'
+import Faqs from '../components/Faqs'
 function Homepage(props) {
   const [userinfo, setUserinfo] = useState(null)
   useEffect(async () => {
@@ -15,24 +16,32 @@ function Homepage(props) {
   return (
     <>
       <div className='homepage-main-con'>
-        {userinfo && <h1>Welcome back, {userinfo.Name}</h1>}
+        <div className='home-inn-con-1'>
+          <div className='container'>
+            {userinfo && <h1>Welcome back, {userinfo.Name}</h1>}
 
-        <h1>Welcome to Palansoft Interactive</h1>
-        <h2>Watch anywhere. Cancel anytime.</h2>
-        <h3>Ready to watch? create your account or restart your membership.</h3>
-        {/* <p>{name.data.Name}</p> */}
-        <p>
-          <Link className='btn btn-start' to='/signin'>
-            Get Started
-          </Link>
-        </p>
-        <MovieBanner />
-        <MovieRaw
-          title='Netflix Originals'
-          isLargeRow={true}
-          fetchURL={requests.fetchNetflixOriginals}
-        ></MovieRaw>
-        {/* <MovieRaw
+            <h1>Welcome to Palansoft Interactive</h1>
+            <h2>Watch anywhere. Cancel anytime.</h2>
+            <h3>
+              Ready to watch? create your account or restart your membership.
+            </h3>
+            {/* <p>{name.data.Name}</p> */}
+
+            <p>
+              <Link className='btn btn-start' to='/signin'>
+                Get Started
+              </Link>
+            </p>
+
+            {userinfo && (
+              <>
+                <MovieBanner />
+                <MovieRaw
+                  title='Netflix Originals'
+                  isLargeRow={true}
+                  fetchURL={requests.fetchNetflixOriginals}
+                ></MovieRaw>
+                {/* <MovieRaw
           title='Top Rated'
           fetchURL={requests.fetchTopRated}
         ></MovieRaw>
@@ -44,7 +53,16 @@ function Homepage(props) {
           title='Romantic Movies'
           fetchURL={requests.fetchRomanceMovies}
         ></MovieRaw> */}
-        <ActivityRaw title='Palansoft' fetchURL={requests.fetchRomanceMovies} />
+
+                <ActivityRaw
+                  title='Palansoft'
+                  fetchURL={requests.fetchRomanceMovies}
+                />
+              </>
+            )}
+          </div>
+        </div>
+        <Faqs />
       </div>
     </>
   )

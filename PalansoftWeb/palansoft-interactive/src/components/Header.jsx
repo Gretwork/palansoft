@@ -67,8 +67,8 @@ function Header() {
                     Log Out
                   </button>
                   <NavDropdown title='Profile' id='collasible-nav-dropdown'>
-                    <Link className='btn btn-link-black' to='/edit-user'>
-                      Edit Profile
+                    <Link className='btn btn-link-black' to='/adduser'>
+                      Add User
                     </Link>
                   </NavDropdown>
                 </>

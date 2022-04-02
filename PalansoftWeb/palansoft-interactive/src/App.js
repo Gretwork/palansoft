@@ -7,25 +7,27 @@ import Signin from './pages/Signin'
 import Signup from './pages/Signup'
 import ResetPassword from './pages/ResetPassword'
 import Homepage from './pages/Home'
-import Faqs from './components/Faqs'
+import UserListing from './pages/UserListing'
 import EditUser from './pages/EditUser'
+import AddUser from './pages/AddUser'
+import Faqs from './components/Faqs'
 
 function App() {
   return (
     <FeedbackProvider>
       <Router>
         <Header />
-        <div className='container'>
-          <Routes>
-            <Route path='/' element={<Homepage />} />
-            <Route path='/signin' element={<Signin />} />
-            <Route path='/signup' element={<Signup />} />
-            <Route path='/about' element={<AboutPage />} />
-            <Route path='/edit-user' element={<EditUser />} />
-            <Route path='/reset-password' element={<ResetPassword />} />
-          </Routes>
-        </div>
-        <Faqs />
+        <Routes>
+          <Route path='/' element={<Homepage />} />
+          <Route path='/signin' element={<Signin />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/edit-user' element={<EditUser />} />
+          <Route path='/reset-password' element={<ResetPassword />} />
+          <Route path='/userListing' element={<UserListing />} />
+          <Route path='/adduser' element={<AddUser />} />
+          <Route path='/faqs' element={<Faqs />} />
+        </Routes>
         <Footer />
       </Router>
     </FeedbackProvider>

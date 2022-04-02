@@ -26,6 +26,7 @@ function Signin() {
   const navigate = useNavigate()
 
   const [loginStatus, setLoginStatus] = useState('')
+  const [apiStatus, setApiStatus] = useState('')
 
   //const userdata = JSON.stringify(localStorage.getItem('userinfo'))
   //Axios.defaults.withCredentials = true
@@ -40,25 +41,40 @@ function Signin() {
         Mobile: Mobile,
         Password: Password,
       },
-    }).then((response) => {
-      if (response.data.status) {
-        localStorage.setItem('userinfo', JSON.stringify(response.data.data))
-        setLoginresult(response.data.data.Name)
-        navigate('/')
-        window.location.reload(false)
-      } else {
-        // setUserdata = response.data.data.Name
-        // setLoginresult(response.data.data.Name)
-        // console.log(response.data.data.Name)
-      }
     })
-  }
+      .then((response) => {
+        if (response.data.status) {
+          localStorage.setItem('userinfo', JSON.stringify(response.data.data))
+          setLoginresult(response.data.data.Name)
 
+          navigate('/')
+          window.location.reload(false)
+        } else {
+          // setUserdata = response.data.data.Name
+          // setLoginresult(response.data.data.Name)
+          // console.log(response.data.data.Name)
+        }
+      })
+      .catch(function (error) {
+        console.log(
+          // 'There has been a problem with your fetch operation: ',
+          console.log('this is a', error.message),
+          setApiStatus('Network error, Please try again after some time')
+          // console.log(error.message)
+        )
+      })
+  }
+  useEffect(() => {
+    if (localStorage.getItem('userinfo')) {
+      navigate('/')
+    }
+  }, [])
   // NOTE: pass selected to RatingSelect so we don't need local duplicate state
   return (
     <div className='form-main-con-1'>
       <form>
         <h2 className='page-title-1 text-left'>Welcome Back - {loginresult}</h2>
+        <p className='text-white'>{apiStatus}</p>
         <div className='col-12'>
           <p>Enter your credential to continue</p>
         </div>
